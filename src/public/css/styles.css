@@ -1,0 +1,309 @@
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #212121;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Layout */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    padding: 20px;
+    background: url('/images/background.jpg') no-repeat center center/cover; /* Substitua pelo caminho correto */
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    filter: brightness(80%) blur(2px);
+    transition: filter 0.3s ease-in-out, transform 0.5s ease-out;
+}
+
+.app-container:hover {
+    filter: brightness(100%) blur(0px);
+    transform: scale(1.05);
+}
+
+/* Efeitos para a Imagem */
+.app-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Efeito de escurecimento */
+    border-radius: 15px;
+    z-index: -1;
+    animation: moveEffect 5s ease-in-out infinite;
+}
+
+/* Animação para o efeito de movimento da imagem */
+@keyframes moveEffect {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FBC02D;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 15px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #FF9800; /* Mudança de cor ao passar o mouse */
+}
+
+.navbar-title {
+    font-size: 2rem;
+    color: #e50914; /* Cor de destaque */
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Dancing Script', cursive; /* Fonte mais descolada */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-links li a:hover {
+    color: #FBC02D;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 120px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Efeito de fadeIn para o título */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-title span {
+    color: #e50914;
+    font-family: 'Dancing Script', cursive;
+}
+
+.description {
+    font-size: 1.5rem;
+    color: #cccccc;
+    margin-top: 20px;
+    line-height: 1.8;
+    text-align: center;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Animations */
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Custom Buttons */
+button {
+    background-color: #FF5722;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #FF7043;
+    transform: translateY(-5px);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #212121;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+}
+
+footer a {
+    color: #FF5722;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 8px 18px;
+        font-size: 1rem;
+    }
+}
+
+/* Additional styling */
+input, textarea {
+    border: none;
+    outline: none;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+input:focus, textarea:focus {
+    background-color: #444;
+}
+
+select {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+select:focus {
+    background-color: #444;
+}
